@@ -21,9 +21,6 @@ public class hangman {
             Random word = new Random();
             String random_word = list.get(word.nextInt(list.size()));
 
-            // To store the characters that the player guesses
-            ArrayList<Character> player_guesses = new ArrayList<>();
-
             // Convert the word to char array
             char[] char_word = random_word.toCharArray();
 
@@ -35,12 +32,13 @@ public class hangman {
             System.out.println("Here's the question.");
 
             // printing the hidden word "________"
-            for  (int i = 0; i < random_word.length(); i++) {
-                if (player_guesses.contains(random_word.charAt(i))){
-                    System.out.print(random_word.charAt(i));
+            for (int i = 0; i < char_word.length; i++) {
+                if (number_charword[i] == 1) {
+                    System.out.print(char_word[i]);
                 }
-                else{
+                if (number_charword[i] == 0) {
                     System.out.print("_");
+                    wrong++;
                 }
             }
 
