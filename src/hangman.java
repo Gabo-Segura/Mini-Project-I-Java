@@ -44,7 +44,7 @@ public class hangman {
                 }
             }
 
-            // elements for the scanner
+            // elements and variables
             String letter;
             Scanner keyboard = new Scanner(System.in);
             boolean right = !false;
