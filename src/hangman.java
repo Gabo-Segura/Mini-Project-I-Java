@@ -31,7 +31,7 @@ public class hangman {
             int[] number_charword = new int[char_word.length];
 
             int wrong = 0; // variable that counts wrong letters
-            System.out.println(random_word);
+            //System.out.println(random_word);
             System.out.println("Here's the question.");
 
             // printing the hidden word "________"
@@ -67,7 +67,7 @@ public class hangman {
                         }
                         if (number_charword[i] == 0) {
                             System.out.print("_");
-                            //wrong_ch++;
+                            wrong++;
                         }
                     }
                     System.out.println();
@@ -88,7 +88,7 @@ public class hangman {
                 // If a character is wrong
                 // Still trying to keep the count of wrong guesses, right now working with overall guesses, good or bad
                 if (right != false){
-                    System.out.print("You have guessed (" + guesses + ") wrong guesses: " + char_letter);
+                    System.out.print("You have guessed (" + wrong + ") wrong guesses: " + char_letter);
                     System.out.println();
                 }
 
