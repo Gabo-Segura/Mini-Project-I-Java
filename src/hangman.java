@@ -28,7 +28,7 @@ public class hangman {
             char[] char_word = random_word.toCharArray();
 
             // Creating arrays
-            int[] number_charword = new int[char_word.length]; // the same array than 'charword' but in numbers
+            int[] number_charword = new int[char_word.length];
 
             int wrong = 0; // variable that counts wrong letters
             System.out.println(random_word);
@@ -47,11 +47,10 @@ public class hangman {
             // elements for the scanner
             String letter;
             Scanner keyboard = new Scanner(System.in);
-            boolean right = false;
-
+            boolean right = !false;
             int guesses = 1;
-            int wrong_ch = guesses;
             int display = 0;
+            int wrong_ch = 0;
             while(true) {
 
                 if (display == 0) {
@@ -66,11 +65,9 @@ public class hangman {
                         if (number_charword[i] == 1) {
                             System.out.print(char_word[i]);
                         }
-                        if (number_charword[i] == 3) {
-                            System.out.print(" ");
-                        }
                         if (number_charword[i] == 0) {
                             System.out.print("_");
+                            //wrong_ch++;
                         }
                     }
                     System.out.println();
@@ -88,9 +85,16 @@ public class hangman {
                     }
                 }
 
+                // If a character is wrong
+                // Still trying to keep the count of wrong guesses, right now working with overall guesses, good or bad
+                if (right != false){
+                    System.out.print("You have guessed (" + guesses + ") wrong guesses: " + char_letter);
+                    System.out.println();
+                }
+
                 // Player will lose the game after 10 errors with no success
                 if(guesses == 10){
-                    System.out.println("You have guessed (" + guesses + ") wrong letters: " );
+                    System.out.println("You have guessed (" + guesses + ") wrong guesses: " );
                     System.out.println("You lose!" );
                     System.out.println("The correct word was '" + random_word + "'" );
                     break;
@@ -111,12 +115,7 @@ public class hangman {
                     break;
                 }
 
-                // If a character is wrong
-                // still trying to resolve to print after a correct character is given.
-                if (!right && wrong_ch == guesses){
-                    System.out.print("You have guessed (" + guesses + ") wrong letters: " + char_letter);
-                    System.out.println();
-                }
+
 
                 guesses++;
 
